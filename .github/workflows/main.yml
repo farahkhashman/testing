@@ -25,10 +25,10 @@ jobs:
         Expand-Archive -Path "$currentFolder\swigwin-4.3.0.zip" -DestinationPath C:\local
         cd C:\local\swigwin-4.3.0
         .\swig.exe -version
-        ECHO $env:PATH
-        $CurrentPATH = ([Environment]::GetEnvironmentVariable("PATH")).Split(";")
-        $NewPATH = ($CurrentPATH + "C:\local\swigwin-4.3.0") -Join ";"
-        [Environment]::SetEnvironmentVariable("PATH", $NewPath, [EnvironmentVariableTarget]::Machine) 
+        echo "C:\local\swigwin-4.3.0" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        #$CurrentPATH = ([Environment]::GetEnvironmentVariable("PATH")).Split(";")
+        #$NewPATH = ($CurrentPATH + "C:\local\swigwin-4.3.0") -Join ";"
+        #[Environment]::SetEnvironmentVariable("PATH", $NewPath, [EnvironmentVariableTarget]::Machine) 
         swig -version
     - name: check
       run: |
