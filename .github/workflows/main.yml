@@ -9,22 +9,14 @@ jobs:
           - arch: AMD64
             platform: x64
             boost-lib: 64
-          #- arch: x86
-          #  platform: Win32
-          #  boost-lib: 32
+          - arch: x86
+            platform: Win32
+            boost-lib: 32
     steps:
     - name: install SWIG (4.3.0)
       run: |
         curl -L -o swigwin-4.3.0.zip https://sourceforge.net/projects/swig/files/swigwin/swigwin-4.3.0/swigwin-4.3.0.zip
-        #$Url = "https://sourceforge.net/projects/swig/files/swigwin/swigwin-4.3.0/swigwin-4.3.0.zip/download"
-        # (New-Object System.Net.WebClient).DownloadFile($Url, "$env:TEMP\swig43.zip")
-        # Expand-Archive -Path "$env:TEMP\swig43.zip" -DestinationPath C:\local
         pwd
         dir
-        cd swigwin-4.3.0
-        dir
-        .\swig.exe -version
-        .\swig.exe -help
-        SET PATH=%PATH%;C:\local\swigwin-4.3.0
 
          
