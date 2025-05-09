@@ -15,7 +15,7 @@ jobs:
     steps:
     - name: install SWIG (4.3.0)
       run: |
-        wget -O swigwin-4.3.0.zip https://sourceforge.net/projects/swig/files/swigwin/swigwin-4.3.0/swigwin-4.3.0.zip
+        curl -L -o swigwin-4.3.0.zip https://sourceforge.net/projects/swig/files/swigwin/swigwin-4.3.0/swigwin-4.3.0.zip
         #$Url = "https://sourceforge.net/projects/swig/files/swigwin/swigwin-4.3.0/swigwin-4.3.0.zip/download"
         # (New-Object System.Net.WebClient).DownloadFile($Url, "$env:TEMP\swig43.zip")
         # Expand-Archive -Path "$env:TEMP\swig43.zip" -DestinationPath C:\local
