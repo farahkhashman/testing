@@ -26,7 +26,9 @@ jobs:
         cd C:\local\swigwin-4.3.0
         .\swig.exe -version
         ECHO $env:PATH
-        SET PATH=%PATH%;"C:\local\swigwin-4.3.0"
+        $CurrentPATH = ([Environment]::GetEnvironmentVariable("PATH")).Split(";")
+        $NewPATH = ($CurrentPATH + "C:\local\swigwin-4.3.0") -Join ";"
+        [Environment]::SetEnvironmentVariable("PATH", $NewPath, [EnvironmentVariableTarget]::Machine) 
         swig -version
     - name: check
       run: |
