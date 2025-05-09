@@ -13,18 +13,28 @@ jobs:
             platform: Win32
             boost-lib: 32
     steps:
-    - name: install SWIG (4.3.0)
+    - name: echo all
       run: |
-        curl -L -o swigwin-4.3.0.zip https://sourceforge.net/projects/swig/files/swigwin/swigwin-4.3.0/swigwin-4.3.0.zip
-        pwd
-        dir
-        $currentFolder = (Get-Location).Path
-        Expand-Archive -Path "$currentFolder\swigwin-4.3.0.zip" -DestinationPath C:\local
-        cd C:\local\swigwin-4.3.0
-        .\swig.exe -version
-        ECHO $env:PATH
-        SET PATH=%PATH%;"C:\local\swigwin-4.3.0"
-        echo "%%%%%"
+        gci env:
+    - name: uninstall SWIG 4.1.1
+      run: |
+        choco uninstall swig
         swig -version
+    - name: check
+      run: |
+        swig -version
+    #- name: install SWIG (4.3.0)
+    #  run: |
+    #    curl -L -o swigwin-4.3.0.zip https://sourceforge.net/projects/swig/files/swigwin/swigwin-4.3.0/swigwin-4.3.0.zip
+    #    pwd
+    #    dir
+    #    $currentFolder = (Get-Location).Path
+    #    Expand-Archive -Path "$currentFolder\swigwin-4.3.0.zip" -DestinationPath C:\local
+    #    cd C:\local\swigwin-4.3.0
+    #    .\swig.exe -version
+    #    ECHO $env:PATH
+    #    SET PATH=%PATH%;"C:\local\swigwin-4.3.0"
+    #    echo "%%%%%"
+    #     swig -version
 
          
