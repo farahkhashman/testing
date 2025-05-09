@@ -20,12 +20,9 @@ jobs:
         dir
         $currentFolder = (Get-Location).Path
         Expand-Archive -Path "$currentFolder\swigwin-4.3.0.zip" -DestinationPath C:\local
-        cd C:\local
-        dir
-        cd swigwin-4.3.0
-        dir
-        swig.exe -version
-        SET PATH=%PATH%;C:\local\swigwin-4.3.0
-        swig -help
+        cd C:\local\swigwin-4.3.0
+        .\swig.exe -version
+        echo %PATH%
+        SET PATH=%PATH%;"C:\local\swigwin-4.3.0"
 
          
