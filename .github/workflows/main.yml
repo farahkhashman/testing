@@ -22,7 +22,9 @@ jobs:
         Expand-Archive -Path "$currentFolder\swigwin-4.3.0.zip" -DestinationPath C:\local
         cd C:\local\swigwin-4.3.0
         .\swig.exe -version
-        echo %PATH%
+        ECHO $env:PATH
         SET PATH=%PATH%;"C:\local\swigwin-4.3.0"
+        echo "%%%%%"
+        swig -version
 
          
